@@ -1,6 +1,6 @@
 {
-	"name": "helloworld",
-	"displayName": "HelloWorld",
+	"name": "css-autocomplete",
+	"displayName": "CssAutocomplete",
 	"description": "",
 	"version": "0.0.1",
 	"engines": {
@@ -14,12 +14,6 @@
 	],
 	"main": "./out/extension.js",
 	"contributes": {
-		"commands": [
-			{
-				"command": "helloworld.helloWorld",
-				"title": "Hello World"
-			}
-		]
 	},
 	"scripts": {
 		"vscode:prepublish": "npm run compile",

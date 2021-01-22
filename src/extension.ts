@@ -1,4 +1,4 @@
-import { ExtensionContext, Hover, languages } from 'vscode';
+import { ExtensionContext, languages } from 'vscode';
 import { GoCompletionItemProvider } from './complete';
 import { getIsEligibleAndStyleDict } from './getIsEligibleAndStyleDict';
 

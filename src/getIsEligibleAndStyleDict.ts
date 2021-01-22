@@ -1,15 +1,6 @@
 import * as fs from 'fs';
-import { join, parse } from 'path';
-import {
-	CompletionItem,
-	CompletionItemKind,
-	CompletionItemProvider,
-	Position,
-	Range,
-	TextDocument,
-	Uri,
-	workspace,
-} from 'vscode';
+import { join } from 'path';
+import { Uri, workspace } from 'vscode';
 import { logger } from './logger';
 
 export const getIsEligibleAndStyleDict = async () => {

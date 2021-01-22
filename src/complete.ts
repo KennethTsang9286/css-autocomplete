@@ -1,4 +1,3 @@
-import { join, parse } from 'path';
 import {
 	CompletionItem,
 	CompletionItemKind,
@@ -6,17 +5,22 @@ import {
 	Position,
 	Range,
 	TextDocument,
-	Uri,
-	workspace,
 } from 'vscode';
-
 interface StyleDict {
 	[key: string]: string;
 }
+
 export class GoCompletionItemProvider implements CompletionItemProvider {
-	styleDict: StyleDict = {};
+	itemList: CompletionItem[] = [];
 	constructor(styleDict: StyleDict) {
-		this.styleDict = styleDict;
+		const itemList: CompletionItem[] = [];
+		Object.keys(styleDict).forEach((key, index) => {
+			const item = new CompletionItem(key, CompletionItemKind.Enum);
+			item.detail = styleDict[key];
+			item.sortText = index.toString();
+			itemList.push(item);
+		});
+		this.itemList = itemList;
 	}
 	public provideCompletionItems(
 		document: TextDocument,
@@ -37,14 +41,6 @@ export class GoCompletionItemProvider implements CompletionItemProvider {
 			return Promise.resolve([]);
 		}
 
-		const tmp = ['--f-space-2', '--d-space-3', '--aesd4'];
-		const tmp2 = tmp.map((str) => {
-			const item = new CompletionItem(str, CompletionItemKind.Enum);
-			item.detail = 'details';
-
-			return item;
-		});
-
-		return Promise.resolve(tmp2);
+		return Promise.resolve(this.itemList);
 	}
 }
