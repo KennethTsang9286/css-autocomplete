@@ -1,3 +1,4 @@
+import { join, parse } from 'path';
 import {
 	CompletionItem,
 	CompletionItemKind,
@@ -5,9 +6,18 @@ import {
 	Position,
 	Range,
 	TextDocument,
+	Uri,
+	workspace,
 } from 'vscode';
 
+interface StyleDict {
+	[key: string]: string;
+}
 export class GoCompletionItemProvider implements CompletionItemProvider {
+	styleDict: StyleDict = {};
+	constructor(styleDict: StyleDict) {
+		this.styleDict = styleDict;
+	}
 	public provideCompletionItems(
 		document: TextDocument,
 		position: Position,
