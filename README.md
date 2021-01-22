@@ -1,6 +1,8 @@
 # css-autocomplete README
 
-This is the README for your extension "css-autocomplete". After writing up a brief description, we recommend including the following sections.
+This vscode extension would get the css variables from a specific file and try to autocomplete when variables are being used in a css file.
+
+![Output sample](https://github.com/KennethTsang9286/css-autocomplete/raw/main/resources/demo.gif)
 
 ## Features
 
