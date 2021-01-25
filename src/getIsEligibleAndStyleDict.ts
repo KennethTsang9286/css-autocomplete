@@ -6,7 +6,7 @@ import { logger } from './logger';
 export const getIsEligibleAndStyleDict = async () => {
 	const attributeRegex = /--([\w-]+): ([^;]+);/g;
 	const targetCssRelativePath =
-		'node_modules/@ofx-com/fox.design-tokens/design-tokens.css';
+		'';
 	const rootUri = workspace.workspaceFolders![0].uri;
 	const targetCssUri = Uri.parse(join(rootUri.fsPath, targetCssRelativePath));
 	if (!fs.existsSync(targetCssUri.fsPath)) {
